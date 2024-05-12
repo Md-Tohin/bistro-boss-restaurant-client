@@ -1,0 +1,19 @@
+.react-tabs__tab{
+    border: none;
+}
+
+.react-tabs__tab-list {
+    border: none;
+}
+
+.react-tabs__tab--selected {
+    background: #fff;
+    border-color: #fff; 
+    /* color: black; */
+    border-radius:0;   
+}
+
+.selectMenu{
+    border-bottom: 2px solid #BB8506;
+    color: #BB8506!important; 
+}

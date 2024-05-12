@@ -1,0 +1,24 @@
+.slider-wrapper{
+    height: 550px;
+}
+.control-next, .control-prev{
+    position: absolute;
+    top: 40% !important;    
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+}
+.control-next {
+    right: 20px !important;
+}
+.control-prev {
+    left: 20px !important;
+}
+.carousel-item img{
+    height: 550px;
+    width: 100%;
+    object-fit: fill;
+}
+.carousel{
+    text-align: center;
+}
