@@ -4,6 +4,8 @@ import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 import Swal from "sweetalert2";
+import { IoCartOutline } from "react-icons/io5";
+import useCart from "../../../hooks/useCart";
 
 const navigation = [
   { name: "Home", href: "/", current: true },
@@ -19,6 +21,7 @@ function classNames(...classes) {
 
 const Navbar = () => {  
   const { user, logOut } = useContext(AuthContext); 
+  const [cart] = useCart();
   const handleLogOut = () => {
     logOut()
     .then((result) => {
@@ -124,6 +127,7 @@ const Navbar = () => {
                 </div>
 
                 <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                  
                   <button
                     type="button"
                     className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
@@ -133,6 +137,15 @@ const Navbar = () => {
                     <BellIcon className="h-6 w-6" aria-hidden="true" />
                   </button>
 
+                  <button
+                    type="button"
+                    className="relative ms-3 rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                  >
+                    <span className="absolute -inset-1.5" />
+                    <IoCartOutline className="h-6 w-6" aria-hidden="true" />
+                    <span className="bg-yellowDark absolute -top-3 -right-3 w-7 h-6 rounded-full text-white"><span className="text-center">{cart.length}</span></span>
+                  </button>
+                  
                   {/* Profile dropdown */}
                   {user && (
                     <>
