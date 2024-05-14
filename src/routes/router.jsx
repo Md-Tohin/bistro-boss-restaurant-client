@@ -7,6 +7,11 @@ import Login from "../frontend/pages/Login/Login";
 import Register from "../frontend/pages/Register/Register";
 import PrivateRoute from './PrivateRoute';
 import ProtectRoute from "./ProtectRoute";
+import Cart from "../frontend/user/Cart/Cart";
+import UserLayout from "../frontend/user/UserLayout/UserLayout";
+import Dashboard from "../frontend/user/Dashboard/Dashboard";
+import Profile from "../frontend/user/Profile/Profile";
+import Order from "../frontend/user/Order/Order";
 
 const router = createBrowserRouter([
     {
@@ -26,16 +31,38 @@ const router = createBrowserRouter([
                 element: <Food></Food>
             },
             {
-                path: "/user/dashboard",
-                element: <PrivateRoute><div>Hi Bangladesh</div></PrivateRoute>
-            },
-            {
                 path: "/login",
                 element: <ProtectRoute><Login></Login></ProtectRoute>
             },
             {
                 path: "/register",
                 element: <ProtectRoute><Register></Register></ProtectRoute>
+            },
+            {
+                path: "user",
+                element: <PrivateRoute><UserLayout></UserLayout></PrivateRoute>,
+                children: [
+                    {
+                        path: "dashboard",
+                        element: <Dashboard></Dashboard>,
+                    },
+                    {
+                        path: "cart",
+                        element: <Cart></Cart>
+                    },
+                    {
+                        path: "orders",
+                        element: <Order></Order>
+                    },
+                    {
+                        path: "payment",
+                        element: <Cart></Cart>
+                    },
+                    {
+                        path: "profile",
+                        element: <Profile></Profile>
+                    },
+                ]
             },
         ]
     }

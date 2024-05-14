@@ -1,12 +1,12 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import loginImage from "../../../assets/others/authentication1.png";
-import { FaFacebookF, FaGoogle, FaGithub } from "react-icons/fa6";
 import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha, } from "react-simple-captcha";
 import { useContext, useEffect, useState } from "react";
 import "./Login.css";
 import { Helmet } from "react-helmet-async";
 import { AuthContext } from "../../../providers/AuthProvider";
 import Swal from "sweetalert2";
+import SocialLogin from "../../Shared/SocialLogin/SocialLogin";
 
 const Login = () => {
   const { user, loginUser } = useContext(AuthContext);
@@ -144,20 +144,7 @@ const Login = () => {
                 <span className="font-semibold">Create a New Account</span>
               </Link>
             </div>
-            <div className="text-center ">
-              <div className="text-dark02 py-3">Or sign in with</div>
-              <div className="flex justify-between items-center w-1/2 mx-auto text-dark02">
-                <a className="bg-white border border-dark02 p-3 rounded-full mx-1.5 hover:bg-black hover:bg-opacity-60 hover:text-white transition-all duration-300">
-                  <FaFacebookF></FaFacebookF>
-                </a>
-                <a className="bg-white border border-dark02 p-3 rounded-full mx-1.5 hover:bg-black hover:bg-opacity-60 hover:text-white transition-all duration-300">
-                  <FaGoogle />
-                </a>
-                <a className="bg-white border border-dark02 p-3 rounded-full mx-1.5 hover:bg-black hover:bg-opacity-60 hover:text-white transition-all duration-300">
-                  <FaGithub />
-                </a>
-              </div>
-            </div>
+           <SocialLogin></SocialLogin>
           </div>
         </div>
       </div>

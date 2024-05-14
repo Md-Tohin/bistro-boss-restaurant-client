@@ -21,7 +21,7 @@ export default {
         dark06: '#E8E8E8',
         dark07: '#F3F3F3',
         dark09: '#111827',
-        dark10: '#1F2937',
+        dark10: '#1F2937',        
       },
     },
   },
