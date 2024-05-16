@@ -17,6 +17,7 @@ import { default as AdminDashboard } from '../admin/pages/Dashboard/Dashboard';
 import User from "../admin/pages/User/User";
 import { default as AdminMenu } from '../admin/pages/Menu/Menu';
 import MenuAdd from "../admin/pages/Menu/MenuAdd";
+import MenuEdit from "../admin/pages/Menu/MenuEdit";
 
 const router = createBrowserRouter([
     {
@@ -84,8 +85,13 @@ const router = createBrowserRouter([
                 element: <MenuAdd></MenuAdd>
             },
             {
+                path: "menu/edit/:id",
+                element: <MenuEdit></MenuEdit>,
+                loader: ({params}) => fetch(`http://localhost:5000/api/menu/${params.id}`),
+            },
+            {
                 path: "menu",
-                element: <AdminMenu></AdminMenu>
+                element: <AdminMenu></AdminMenu>,
             },
             {
                 path: "users",

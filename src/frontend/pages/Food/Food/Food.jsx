@@ -14,7 +14,7 @@ const Food = () => {
     "offered",
     "popular",
     "dessert",
-    'soups',
+    'soup',
     "pizza",
     "salad",
     "drinks",

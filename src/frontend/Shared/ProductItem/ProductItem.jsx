@@ -73,7 +73,7 @@ const ProductItem = ({ item }) => {
         <img
           src={item?.image ? item?.image : productImg}
           alt=""
-          className="w-full h-full object-fill"
+          className="w-full h-[175px] object-fill"
         />
         <div className="px-3 py-5 text-center">
           <h1 className="text-lg font-bold text-dark01">
