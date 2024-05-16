@@ -22,6 +22,7 @@ export default {
         dark07: '#F3F3F3',
         dark09: '#111827',
         dark10: '#1F2937',        
+        golden: '#D1A054',        
       },
     },
   },

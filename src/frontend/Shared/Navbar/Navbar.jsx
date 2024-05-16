@@ -71,7 +71,7 @@ const Navbar = () => {
                     <img
                       className="h-8 w-auto"
                       src="./logo.png"
-                      alt="Your Company"
+                      alt="logo"
                     />
                     <div className="text-white leading-5 ms-2">
                       <span className="font-bold tracking-widest">

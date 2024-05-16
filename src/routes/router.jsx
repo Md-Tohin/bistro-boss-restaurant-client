@@ -9,9 +9,14 @@ import PrivateRoute from './PrivateRoute';
 import ProtectRoute from "./ProtectRoute";
 import Cart from "../frontend/user/Cart/Cart";
 import UserLayout from "../frontend/user/UserLayout/UserLayout";
-import Dashboard from "../frontend/user/Dashboard/Dashboard";
+import { default as UserDashboard } from "../frontend/user/Dashboard/Dashboard";
 import Profile from "../frontend/user/Profile/Profile";
 import Order from "../frontend/user/Order/Order";
+import AdminLayout from "../admin/Layout/AdminLayout";
+import { default as AdminDashboard } from '../admin/pages/Dashboard/Dashboard';
+import User from "../admin/pages/User/User";
+import { default as AdminMenu } from '../admin/pages/Menu/Menu';
+import MenuAdd from "../admin/pages/Menu/MenuAdd";
 
 const router = createBrowserRouter([
     {
@@ -44,7 +49,7 @@ const router = createBrowserRouter([
                 children: [
                     {
                         path: "dashboard",
-                        element: <Dashboard></Dashboard>,
+                        element: <UserDashboard></UserDashboard>,
                     },
                     {
                         path: "cart",
@@ -63,6 +68,28 @@ const router = createBrowserRouter([
                         element: <Profile></Profile>
                     },
                 ]
+            },
+        ]
+    },
+    {
+        path: "admin",
+        element: <PrivateRoute><AdminLayout></AdminLayout></PrivateRoute>,
+        children: [
+            {
+                path: "dashboard",
+                element: <AdminDashboard></AdminDashboard>
+            },
+            {
+                path: "menu/add",
+                element: <MenuAdd></MenuAdd>
+            },
+            {
+                path: "menu",
+                element: <AdminMenu></AdminMenu>
+            },
+            {
+                path: "users",
+                element: <User></User>
             },
         ]
     }
