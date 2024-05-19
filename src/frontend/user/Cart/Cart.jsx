@@ -11,7 +11,7 @@ const Cart = () => {
   const [cart, refetch] = useCart();
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
-  const totalCartItem = cart.reduce((sum, item) => sum + item.price, 0);
+  const totalCartItem = cart.reduce((sum, item) => sum + parseFloat(item.price), 0);
 
   const handleCartDelete = (id) => {
     Swal.fire({
@@ -94,8 +94,9 @@ const Cart = () => {
             >
               Total Price: ${totalCartItem}
             </button>
-          </Link>
-          <Link to="/user/payment" className="">
+          </Link>  
+          {cart.length > 0 ? <>
+            <Link to="/user/payment/add" className="">
             <button
               className="middle none center w-full rounded-lg bg-gradient-to-br from-blue-900 to-green-400 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
               data-ripple-light="true"
@@ -103,6 +104,18 @@ const Cart = () => {
               Pay
             </button>
           </Link>
+          </> : <>
+          <Link>
+            <button
+            disabled
+              className=" middle none center w-full rounded-lg bg-gradient-to-br from-blue-900 to-green-400 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+              data-ripple-light="true"
+            >
+              Pay
+            </button>
+          </Link>
+          </> }        
+          
         </div>
 
         <div className="mt-8">

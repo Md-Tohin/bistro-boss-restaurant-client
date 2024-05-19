@@ -18,6 +18,8 @@ import User from "../admin/pages/User/User";
 import { default as AdminMenu } from '../admin/pages/Menu/Menu';
 import MenuAdd from "../admin/pages/Menu/MenuAdd";
 import MenuEdit from "../admin/pages/Menu/MenuEdit";
+import AddPayment from "../frontend/user/Payment/AddPayment";
+import PaymentHistory from "../frontend/user/Payment/PaymentHistory";
 
 const router = createBrowserRouter([
     {
@@ -61,8 +63,12 @@ const router = createBrowserRouter([
                         element: <Order></Order>
                     },
                     {
+                        path: "payment/add",
+                        element: <AddPayment></AddPayment>
+                    },
+                    {
                         path: "payment",
-                        element: <Cart></Cart>
+                        element: <PaymentHistory></PaymentHistory>
                     },
                     {
                         path: "profile",

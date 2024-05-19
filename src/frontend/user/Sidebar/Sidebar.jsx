@@ -1,4 +1,4 @@
-import { FaHome, FaShoppingCart, FaUserEdit } from "react-icons/fa";
+import { FaHome, FaMoneyBill, FaShoppingCart, FaUserEdit } from "react-icons/fa";
 import { FaList } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
@@ -74,6 +74,17 @@ const Sidebar = () => {
                   <FaList />
                 </span>{" "}
                 My Orders
+              </div>
+            </div>
+          </Link>
+          <Link to="/user/payment">
+            <div className="stat">
+              <div className="stat-title flex">
+                {" "}
+                <span className="text-xl font-bold text-stone-800 mr-2">
+                  <FaMoneyBill />
+                </span>{" "}
+                Payments
               </div>
             </div>
           </Link>

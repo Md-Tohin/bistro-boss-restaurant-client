@@ -23,8 +23,7 @@ const AuthProvider = ({ children }) => {
   const [loader, setLoader] = useState(true);
 
   useEffect(() => {
-    const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setLoader(false);
+    const unSubscribe = onAuthStateChanged(auth, (currentUser) => {      
       setUser(currentUser);
       if (currentUser) {
         const userInfo = {email: currentUser.email};
@@ -33,14 +32,17 @@ const AuthProvider = ({ children }) => {
           // console.log(res.data);
           if(res.data?.token){
             localStorage.setItem('access-token', res.data?.token);
+            setLoader(false);
           }          
         })
         .catch(error => {
           console.log(error);
+          setLoader(false);
         });
       } else {
         //
         localStorage.removeItem('access-token');
+        setLoader(false);
       }
     });
     console.log("Current User : ", user);
